@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1575803055 source:c:\users\shakil\desktop\sklang\main.cpp
+	<iostream>
+	"./lib/filter.hpp"
+
+1575807479 c:\users\shakil\desktop\sklang\lib\filter.hpp
+	<iostream>
+	<string>
+
