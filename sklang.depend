@@ -1,9 +1,12 @@
 # depslib dependency file v1.0
-1575803055 source:c:\users\shakil\desktop\sklang\main.cpp
+1576013001 source:c:\users\shakil\desktop\sklang\main.cpp
 	<iostream>
-	"./lib/filter.hpp"
+	<bits/stdc++.h>
 
-1575807479 c:\users\shakil\desktop\sklang\lib\filter.hpp
+1575812784 c:\users\shakil\desktop\sklang\lib\filter.hpp
 	<iostream>
 	<string>
+
+1575819378 c:\users\shakil\desktop\sklang\lib\lib.hpp
+	<bits/stdc++.h>
 

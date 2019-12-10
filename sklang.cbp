@@ -33,7 +33,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="lib/filter.hpp" />
+		<Unit filename="lib/lib.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
