@@ -2,7 +2,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-char idtbl[100][100];
+char idtbl[100];
+int valtbl[100];
 int tblCounter = 0;
 char kwtbl[] = {'print', 'input'};
 char optbl[] = {'(', ')', '\n'};
@@ -11,7 +12,7 @@ char tokens[1000];
 FILE *fp;
 char str[1000];
 
-#define devMode false
+#define devMode true
 
 //prototypes
 void readFile();
@@ -100,13 +101,11 @@ void checkStream()
             }
             else if(token[0] >= 'a' && token[0] <= 'z' || token[0] >= 'A' && token[0] <= 'Z')
             {
-                int j=0;
-
                 for(i=0; i<tblCounter; i++)
                 {
-                    if(idtbl[i][0] == token[0])
+                    if(idtbl[i] == token[0])
                     {
-                        cout << idtbl[i][1];
+                        cout << valtbl[i];
                     }
                 }
             }
@@ -121,109 +120,34 @@ void checkStream()
             {
                 if(token[i] == '=' && token[i+1] == '"' || token[i] == '=' && token[i+1] >= '0' && token[i+1] <= '9')
                 {
-                    idtbl[tblCounter][0] = token[i-1];
-                    idtbl[tblCounter][1] = token[i+1];
+                    idtbl[tblCounter] = token[i-1];
+                    valtbl[tblCounter] = token[i+1] - '0';
                     tblCounter++;
                 }
                 else if(token[i] == '+')
                 {
-                    for(int j=0; j<tblCounter; j++)
+                    for(i=0; i<tblCounter; i++)
                     {
-                        if(idtbl[j][0] == token[i-1])
+                        if(idtbl[i] == token[i-1])
                         {
-                            num1 = idtbl[j][1] - '0';
+                            num1 = valtbl[i-1];
                         }
                     }
-
-                    for(int j=0; j<tblCounter; j++)
+                    for(i=0; i<tblCounter; i++)
                     {
-                        if(idtbl[j][0] == token[i+1])
+                        if(idtbl[i] == token[i+1])
                         {
-                            num2 = idtbl[j][1] - '0';
+                            num2 = valtbl[i+1];
                         }
                     }
-
-                    res = num1 + num2;
-
-                    idtbl[tblCounter][0] = token[i-3];
-                    idtbl[tblCounter][1] = res + '0';
-                    tblCounter++;
-                }
-                else if(token[i] == '-')
-                {
-                    for(int j=0; j<tblCounter; j++)
-                    {
-                        if(idtbl[j][0] == token[i-1])
-                        {
-                            num1 = idtbl[j][1] - '0';
-                        }
-                    }
-
-                    for(int j=0; j<tblCounter; j++)
-                    {
-                        if(idtbl[j][0] == token[i+1])
-                        {
-                            num2 = idtbl[j][1] - '0';
-                        }
-                    }
-
-                    res = num1 - num2;
-
-                    idtbl[tblCounter][0] = token[i-3];
-                    idtbl[tblCounter][1] = res + '0';
-                    tblCounter++;
-                }
-                else if(token[i] == '*')
-                {
-                    for(int j=0; j<tblCounter; j++)
-                    {
-                        if(idtbl[j][0] == token[i-1])
-                        {
-                            num1 = idtbl[j][1] - '0';
-                        }
-                    }
-
-                    for(int j=0; j<tblCounter; j++)
-                    {
-                        if(idtbl[j][0] == token[i+1])
-                        {
-                            num2 = idtbl[j][1] - '0';
-                        }
-                    }
-
-                    res = num1 * num2;
-
-                    idtbl[tblCounter][0] = token[i-3];
-                    idtbl[tblCounter][1] = res + '0';
-                    tblCounter++;
-                }
-                else if(token[i] == '/')
-                {
-                    for(int j=0; j<tblCounter; j++)
-                    {
-                        if(idtbl[j][0] == token[i-1])
-                        {
-                            num1 = idtbl[j][1] - '0';
-                        }
-                    }
-
-                    for(int j=0; j<tblCounter; j++)
-                    {
-                        if(idtbl[j][0] == token[i+1])
-                        {
-                            num2 = idtbl[j][1] - '0';
-                        }
-                    }
-
-                    res = num1 / num2;
-
-                    idtbl[tblCounter][0] = token[i-3];
-                    idtbl[tblCounter][1] = res + '0';
+                    res = num1+num2;
+                    idtbl[tblCounter] = token[i-3];
+                    valtbl[tblCounter] = res;
                     tblCounter++;
                 }
             }
         }
-//        cout << "[token]" << token << endl;
+        cout << "[token]" << token << endl;
         token = strtok(NULL, optbl);
     }
 
@@ -232,8 +156,8 @@ void checkStream()
         cout << endl << endl << "Here is all declared variables (Only show in development mode)" << endl;
         for(i=0; i<tblCounter; i++)
         {
-            cout << idtbl[i][0] << "\t";
-            cout << idtbl[i][1] << endl;
+            cout << idtbl[i] << "\t";
+            cout << valtbl[i] << endl;
         }
     }
 }

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1576013001 source:c:\users\shakil\desktop\sklang\main.cpp
+1576101083 source:c:\users\shakil\desktop\sklang\main.cpp
 	<iostream>
 	<bits/stdc++.h>
 
@@ -9,4 +9,12 @@
 
 1575819378 c:\users\shakil\desktop\sklang\lib\lib.hpp
 	<bits/stdc++.h>
+
+1576088462 c:\users\shakil\desktop\sklang\lib\primary.hpp
+	<bits/stdc++.h>
+
+1576090892 source:c:\users\shakil\desktop\sklang\main2.cpp
+	<iostream>
+	<bits/stdc++.h>
+	"./lib/primary.hpp"
 

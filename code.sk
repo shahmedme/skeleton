@@ -1,2 +1,6 @@
-print("my name is anik\n");
-print("my name is mirez");
+<<print("this is shakil ahmed\n")>>
+print("hello world\n\n")
+a=8
+b=3
+c=a-b
+print(c)

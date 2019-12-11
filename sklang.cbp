@@ -11,7 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="./test/code.sk" />
+				<Option parameters="code.sk" />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -33,7 +33,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="lib/lib.hpp" />
+		<Unit filename="lib/cleaner.hpp" />
+		<Unit filename="lib/primary.hpp" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
